@@ -1,4 +1,4 @@
-# Translation Drift Analyzer
+# Translation Drift Analyser
 
 The translation Drift Analyser is a small internal-tool-style app for analysing the mismatch of translations between a source text and its translation.
 

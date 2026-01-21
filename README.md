@@ -13,6 +13,28 @@ In addition to the LLM use, it also:
 
 ---
 
+## Deployment
+
+The application was Dockerized, built with Cloud Build, deployed to Cloud Run, connected to Cloud SQL via Unix socket
+
+---
+
+## How to run locally
+
+- Install the dependencies at the root of the project:
+  - $ npm install 
+- Create a PostgreSQL databasewith the drift_analyses table defined in the schema section of this README
+- Create a .env file in the project root containing:
+  - OPENAI_API_KEY=... 
+  - DATABASE_URL=postgres://<USER>:<PASSWORD>@localhost:5432/<DB_NAME> 
+- Build the project:
+  - $ npm run build
+- Start the server:
+  - $ npm start 
+- Open http://localhost:3000 in your browser
+
+---
+
 ## Tech Stack
 
 - **Frontend**: 
@@ -96,15 +118,15 @@ Flow:
 Table used:
 
 ```sql
-CREATE TABLE drift_analyses (
-  id PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS drift_analyses (
+  id SERIAL PRIMARY KEY,
   source_text TEXT NOT NULL,
   translation_text TEXT NOT NULL,
   source_lang TEXT,
   translation_lang TEXT,
-  analysis_json JSON NOT NULL,
+  analysis_json JSONB NOT NULL,
   model_name TEXT,
-  created_at TIMESTAMP
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 ```
 

@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background: #020617; /* very dark blue/black */
+  color: #e5e7eb;      /* light gray text */
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Main app layout */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Main card container */
+.app-card {
+  width: 100%;
+  max-width: 1500px;
+  background: #0b1120; /* slate-ish dark */
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #1f2937;
+}
+
+/* Title */
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Two textareas side by side */
+.text-panels {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 1.5rem;
+}
+
+.text-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-label {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-bottom: 0.4rem;
+}
+
+.textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 220px;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.textarea::placeholder {
+  color: #4b5563;
+}
+
+/* Button */
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #22c55e, #14b8a6);
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.primary-button:hover {
+  filter: brightness(1.05);
+}
+
+/* Results section */
+.results-card {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid #1f2937;
+  background: #020617;
+}
+
+.results-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Bullet list of drifts */
+.drift-list {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+}
+
+/* Highlighted translation preview */
+.translation-preview {
+  margin-top: 1rem;
+  padding: 0.85rem 0.9rem;
+  border-radius: 10px;
+  background: #020617;
+  border: 1px solid #1f2937;
+}
+
+/* Recent analyses section */
+.recent-card {
+  width: 100%;
+  max-width: 1500px;
+  margin-top: 1.75rem;
+  background: #020617;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  border: 1px solid #1f2937;
+}
+
+.recent-list {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}

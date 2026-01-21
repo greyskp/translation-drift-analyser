@@ -23,7 +23,7 @@ The application was Dockerized, built with Cloud Build, deployed to Cloud Run, c
 
 - Install the dependencies at the root of the project:
   - $ npm install 
-- Create a PostgreSQL databasewith the drift_analyses table defined in the schema section of this README
+- Create a PostgreSQL database with the **drift_analyses** table defined in the schema section of this README
 - Create a .env file in the project root containing:
   - OPENAI_API_KEY=... 
   - DATABASE_URL=postgres://<USER>:<PASSWORD>@localhost:5432/<DB_NAME> 
@@ -31,7 +31,7 @@ The application was Dockerized, built with Cloud Build, deployed to Cloud Run, c
   - $ npm run build
 - Start the server:
   - $ npm start 
-- Open http://localhost:3000 in your browser
+- Open **http://localhost:3000** in your browser
 
 ---
 
@@ -134,22 +134,28 @@ CREATE TABLE IF NOT EXISTS drift_analyses (
 
 ## Key Design Decisions and Trade-offs
 
-1. Single, well structured LLM prompt
+1. **Single, well structured LLM prompt**
+
 As per the nature of the assignment (small but well executed application) and the time constraint, I have decided to use a single, well structured LLM prompt instead of chaining multiple ones together. This makes the execution simpler and faster but the results would have been more fine-tunes with different prompt for each category of translation drift.
 
-2. JSON for communication between backend and frontend
+2. **JSON for communication between backend and frontend**
+
 For structure, by design, the LLM returns the data in a JSON format, this ensures consistence in the saved data and makes it easier to store and display on the frontend. But it requires careful prompting and the model could occasionaly get out of the exact scope.
 
-3. Temperature and model choice
+3. **Temperature and model choice**
+
 For this application, the decision was made to go with a temperature of 0. In this first version, the goal was to have the LLM detecting the most common issues in the translations while being consistent so there was no need for it to be too creative. 
 As for the model, I made the decision to go with gpt-4o-mini for cost efficiency reasons and because it is a demo application for the assignment and not a proper production grade app. 
 With multiple prompts chained together, the temperature and the model could have been adjusted for each of them depending on the computing requirements and creativity required by the task.
 
-4. Developed UI vs limited endpoints
+4. **Developed UI vs limited endpoints**
+
 I decided to spend some time developing the UI to ensure that, even for a simple task, the user stills gets a proper and intuitive experience while using it. This time could have been dedicated to improve the features and the number of endpoints available to increase the functionalities offered by the application.
 
-5. Clear architecture vs standard MVC
+5. **Clear architecture vs standard MVC**
+
 The architecture desicion was to follow the MVC design pattern while staying minimal and clear. While it follows the main idea of the design by separating the frontend and the backend and the database connection, the architecture can be improved to follow the model more strictly by properly separating the routes, services and models. As this is a simple application and the files are not excessively long, I have made the decision to keep the architecture clear and simple.
 
-6. Testing by using vs proper test implementation
+6. **Testing by using vs proper test implementation**
+
 The testing of the application has been done by testing the app in the dev environment rather than implementing proper tests. This decision was mostly made due to the time constraint and the simplicity of the application where it was easy to immediatly see the results and fine tune the prompt and the different aspects of the application.
